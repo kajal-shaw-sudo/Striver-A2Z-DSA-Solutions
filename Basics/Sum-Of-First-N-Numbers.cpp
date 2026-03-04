@@ -1,11 +1,38 @@
+// brute: using loop
+class Solution{	
+	public:
+		int NnumbersSum(int N){
+			//your code goes here
+
+            int sum = 0;
+
+            for (int i=1; i<=N; i++) {
+                sum += i;
+            }
+
+            return sum;
+		}
+};
+
+// using formula: n(n+1)/2
+class Solution{	
+	public:
+		int NnumbersSum(int N){
+			//your code goes here
+
+            return N * (N +1) / 2;
+		}
+};
+
+// recursion 1
 class Solution{	
     private:
-        int solve(int n, int sum) {
-            if (n == 0) {
+        int solve(int N, int sum) {
+            if (N == 0) {
                 return sum;
             }
 
-            return solve(n-1, sum + n);
+            return solve(N-1, sum + N);
         }
 
 	public:
@@ -13,5 +40,24 @@ class Solution{
 			//your code goes here
 
             return solve(N, 0);
+		}
+};
+
+// recursion 2
+class Solution{	
+    private:
+        int solve(int N) {
+            if (N == 0) {
+                return 0;
+            }
+
+            return N + solve(N-1);
+        }
+
+	public:
+		int NnumbersSum(int N){
+			//your code goes here
+
+            return solve(N);
 		}
 };
