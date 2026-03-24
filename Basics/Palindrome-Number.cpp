@@ -18,6 +18,7 @@ public:
         return (x == (int)rev);
     }
 };
+// tc = O(logn) = O(d), sc = O(1)
 
 // optimized
 class Solution {
@@ -39,3 +40,4 @@ public:
         return (x == (int)revHalf || x == (int)revHalf/10);
     }
 };
+// tc = O(d/2) = O(d) = O(logn), sc = O(1)

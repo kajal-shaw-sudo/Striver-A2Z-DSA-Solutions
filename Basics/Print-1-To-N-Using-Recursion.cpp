@@ -16,3 +16,4 @@ private:
         solve(n);
     }
 };
+// tc = O(n), sc = O(n) [stack]

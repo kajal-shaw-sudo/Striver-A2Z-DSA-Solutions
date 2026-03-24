@@ -7,3 +7,4 @@ public:
         cout<<n;
     }
 };
+// tc = O(1), sc = O(1)

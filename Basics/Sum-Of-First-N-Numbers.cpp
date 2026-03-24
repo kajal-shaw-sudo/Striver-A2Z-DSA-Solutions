@@ -13,6 +13,7 @@ class Solution{
             return sum;
 		}
 };
+// tc = O(n), sc = O(1)
 
 // using formula: n(n+1)/2
 class Solution{	
@@ -23,6 +24,7 @@ class Solution{
             return N * (N +1) / 2;
 		}
 };
+// tc = O(1), sc = O(1)
 
 // recursion 1
 class Solution{	
@@ -42,6 +44,7 @@ class Solution{
             return solve(N, 0);
 		}
 };
+// tc = O(n), sc = O(n) [stack]
 
 // recursion 2
 class Solution{	
@@ -61,3 +64,4 @@ class Solution{
             return solve(N);
 		}
 };
+// tc = O(n), sc = O(n) [stack]

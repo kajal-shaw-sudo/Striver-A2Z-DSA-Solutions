@@ -5,6 +5,7 @@ public:
         return to_string(n).length();
     }
 };
+// tc = O(d) = O(logn) , sc = O(d) [string of length d]
 
 // using while loop
 class Solution {
@@ -24,6 +25,7 @@ public:
         return count;
     }
 };
+// tc = O(d) = O(logn), sc = O(1)
 
 // using log10
 class Solution {
@@ -36,3 +38,4 @@ public:
         return floor(log10(n)) + 1;
     }
 };
+// tc = O(1), sc = O(1)

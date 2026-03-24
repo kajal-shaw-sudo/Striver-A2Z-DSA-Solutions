@@ -17,7 +17,8 @@ public:
         return (n == sum);
     }
 };
-// tc = O(size^2), where size is the number of digits in n and pow function takes O(size) time, so overall O(size^2)
+// tc = O(size) = O(d) = O(logn), where size is the number of digits in n and pow function takes O(1) time, so overall O(size)
+// sc = O(size) = O(d) = O(logn) [to_string(n) allocates a string of length d]
 
 // without using pow stl (safest way)
 class Solution {
@@ -43,4 +44,5 @@ public:
         return (n == sum);
     }
 };
-// tc = O(size^2), where size is the number of digits in n
+// tc = O(size^2) = O(d^2) = O(log^2 n), where size is the number of digits in n
+// sc = O(size) = O(d) = O(logn) [to_string(n) allocates a string of length d]

@@ -19,14 +19,14 @@ public:
         }
     }
 };
-// tc = O(log(min(n1, n2))
+// tc = O(log(min(n1, n2)) , sc = O(1)
 
 
 // ceaner euclid
 class Solution {
 public:
     int GCD(int n1,int n2) {
-        while (n1 != 0) {
+        while (n2 != 0) {
             int temp = n2;
             n2 = n1 % n2;
             n1 = temp;
@@ -35,4 +35,4 @@ public:
         return n1;
     }
 };
-// tc = O(log(min(n1, n2))
+// tc = O(log(min(n1, n2)) , sc = O(1)
