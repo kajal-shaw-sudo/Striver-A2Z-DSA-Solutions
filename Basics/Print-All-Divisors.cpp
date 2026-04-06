@@ -15,7 +15,7 @@ public:
         return ans;
     }
 };
-// tc = O(n) , sc = O(n)
+// tc = O(n logn) , sc = O(n)
 
 // optimal
 class Solution {
