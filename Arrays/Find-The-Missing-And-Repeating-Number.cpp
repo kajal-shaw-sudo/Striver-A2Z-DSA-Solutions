@@ -65,4 +65,32 @@ public:
 };
 // tc: O(n), sc: O(n)
 
-// optimal
+// optimal 1: using sum
+class Solution {
+public:
+    vector<int> findMissingRepeatingNumbers(vector<int> nums) {
+        int n = nums.size();
+
+        long long s1 = 0, s2 = 0, sn = 0, s2n = 0;
+
+        sn = (n * (n+1)) / 2;
+        s2n = (n * (n+1) * (2*n+1)) / 6;
+
+        for (int i=0; i<n; i++) {
+            s1 += nums[i];
+            s2 += (long long)nums[i] * nums[i];
+        }
+
+        // x + y = (s21 - s2n) / (s - sn), x + y = s - sn
+        long long xPlusY = (s2 - s2n) / (s1 - sn);
+        long long xMinusY = (s1 - sn);
+
+        int repeating = (xPlusY + xMinusY) / 2;
+        int missing = (xPlusY - xMinusY) / 2; 
+
+        return {repeating, missing};
+    }
+};
+// tc: O(n), sc: O(1)
+
+// optimal 2: using XOR 
