@@ -40,6 +40,7 @@ public:
         int n = nums.size();
 
         unordered_map<int, int> freq;
+        
         int repeating = -1, missing = -1;
 
         for (int num : nums) {
