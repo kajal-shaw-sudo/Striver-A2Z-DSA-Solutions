@@ -95,3 +95,62 @@ public:
 // tc: O(n), sc: O(1)
 
 // optimal 2: using XOR 
+class Solution {
+public:
+    vector<int> findMissingRepeatingNumbers(vector<int> nums) {
+        int n = nums.size();
+
+        int xorr = 0;
+
+        for (int i=0; i<n; i++) {
+            // xor of elements of nums
+            xorr ^= nums[i];
+            
+            // xorr from 1 to n
+            xorr ^= (i + 1);
+        }
+
+        // rightmost set bit
+        int bit = (xorr & ~(xorr-1));
+
+        // group the numbers int to zeros and ones based on the differentiating bit
+        int zero = 0, one = 0;
+
+        for (int i=0; i<n; i++) {
+            if ((nums[i] & bit) != 0) {
+                one ^= nums[i];
+            }
+
+            else {
+                zero ^= nums[i];
+            }
+        }
+
+        for (int i=1; i<=n; i++) {
+            if ((i & bit) != 0) {
+                one ^= i;
+            }
+
+            else {
+                zero ^= i;
+            }
+        }
+
+        // count occurence of zeros int nums
+        int count = 0;
+
+        for (int i=0; i<n; i++) {
+            if (nums[i] == 0) {
+                count++;
+            }
+        }
+
+        if (count == 2) {
+            // zero is the repeating number  and one is the missing number
+            return {zero, one};
+        }
+
+        return {one, zero};
+    }
+};
+// tc: O(n), sc: O(1)
