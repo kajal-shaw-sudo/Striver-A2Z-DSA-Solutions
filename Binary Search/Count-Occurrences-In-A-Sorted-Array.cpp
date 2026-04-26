@@ -34,18 +34,18 @@ private:
     int findFirstOccurrence(vector<int>& arr, int target) {
         int firstOccurrence = -1;
 
-        int left = 0, right = arr.size()-1;
+        int low = 0, high = arr.size()-1;
 
-        while (left <= right) {
-            int mid = left + (right-left)/2;
+        while (low <= high) {
+            int mid = low + (high-low)/2;
 
             if (arr[mid] >= target) {
                 firstOccurrence = mid;
-                right = mid - 1;
+                high = mid - 1;
             }
 
             else {
-                left = mid + 1;
+                low = mid + 1;
             }
         }
 
@@ -55,18 +55,18 @@ private:
     int findLastOccurrence(vector<int>& arr, int target) {
         int lastOccurrence = -1;
 
-        int left = 0, right = arr.size()-1;
+        int low = 0, high = arr.size()-1;
 
-        while (left <= right) {
-            int mid = left + (right-left)/2;
+        while (low <= high) {
+            int mid = low + (high-low)/2;
 
             if (arr[mid] <= target) {
                 lastOccurrence = mid;
-                left = mid + 1;
+                low = mid + 1;
             }
 
             else {
-                right = mid - 1;
+                high = mid - 1;
             }
         }
 

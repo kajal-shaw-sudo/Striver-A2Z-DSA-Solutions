@@ -47,18 +47,18 @@ private:
     int getFloor(vector<int>& nums, int x) {
         int floor = -1;
 
-        int left = 0, right = nums.size()-1;
+        int low = 0, high = nums.size()-1;
 
-        while (left <= right) {
-            int mid = left + (right-left)/2;
+        while (low <= high) {
+            int mid = low + (high-low)/2;
 
             if (nums[mid] <= x) {
                 floor = nums[mid];
-                left = mid + 1;
+                low = mid + 1;
             }
 
             else {
-                right = mid - 1;
+                high = mid - 1;
             }
         }
 
@@ -68,18 +68,18 @@ private:
     int getCeil(vector<int>& nums, int x) {
         int ceil = -1;
 
-        int left = 0, right = nums.size()-1;
+        int low = 0, high = nums.size()-1;
 
-        while (left <= right) {
-            int mid = left + (right-left)/2;
+        while (low <= high) {
+            int mid = low + (high-low)/2;
 
             if (nums[mid] >= x) {
                 ceil = nums[mid];
-                right = mid - 1;
+                high = mid - 1;
             }
 
             else {
-                left = mid + 1;
+                low = mid + 1;
             }
         }
 
