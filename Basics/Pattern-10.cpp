@@ -14,3 +14,24 @@ problem: Given an integer n. You need to recreate the pattern given below for an
 Print the pattern in the function given to you.
 */
 
+class Solution {
+public:
+    void pattern10(int n) {
+        for (int i=1; i<=2*n-1; i++) {
+            // for 1st half of the triangle
+            int stars = i;
+
+            // for 2nd half of the triangle
+            if (i > n) {
+                stars = 2*n-i;
+            }
+
+            for (int j=1; j<=stars; j++) {
+                cout<<'*';
+            }
+
+            cout<<'\n';
+        }
+    }
+};
+// tc: O(n^2), sc: O(1)
