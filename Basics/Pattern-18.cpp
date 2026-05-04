@@ -10,3 +10,16 @@ A B C D E
 Print the pattern in the function given to you.
 */
 
+class Solution {
+public:
+    void pattern18(int n) {
+        for (int i=0; i<n; i++) {
+            for (char ch=('A'+n-1)-i; ch<=('A'+n-1); ch++) {
+                cout<<ch<<' ';
+            }
+
+            cout<<'\n';
+        }
+    }
+};
+// tc: O(n^2), sc: O(1)
