@@ -49,6 +49,56 @@ public:
         return merged[k-1];
     }
 };
-// tc: O(m + n), sc: O(m + n)
+// tc: O(n1 + n2), sc: O(n1 + n2)
 
-// optimal: using binary search, we can find the kth element in O(log(min(m, n))) time by performing binary search on the smaller array and calculating the corresponding index in the larger array. We check if the elements at these indices satisfy the conditions for being the kth element and adjust our search space accordingly.
+// better: simulate the merge without storing it — count steps through both arrays until the k-th element is reached, then return it directly.
+class Solution {
+public:
+    int kthElement(vector<int> &a, vector<int>& b, int k) {
+        int n1 = a.size(), n2 = b.size();
+
+        int i = 0, j = 0;
+
+        int lastElement = -1, count = 0;
+
+        while (i < n1 && j < n2) {
+            if (a[i] <= b[j]) {
+                lastElement = a[i++];
+            }
+
+            else {
+                lastElement = b[j++];
+            }
+
+            count++;
+
+            if (count == k) {
+                return lastElement;
+            }
+        }
+
+        while (i < n1) {
+            lastElement = a[i++];
+            count++;
+
+            if (count == k) {
+                return lastElement;
+            }
+        }
+
+        while (j < n2) {
+            lastElement = b[j++];
+            count++;
+
+            if (count == k) {
+                return lastElement;
+            }
+        }
+
+        return -1;
+    }
+};
+// tc: O(n1 + n2), sc: O(1)
+
+// optimal: binary search on the smaller array. Partition both arrays such that their combined left half has exactly k elements. A valid partition satisfies a[mid1-1] <= b[mid2] and b[mid2-1] <= a[mid1] — the largest left element across both arrays is the answer.
+// tc: O(log(min(n1, n2))), sc: O(1)
