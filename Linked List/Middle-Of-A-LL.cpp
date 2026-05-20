@@ -15,7 +15,6 @@ Output: [4,5,6]
 Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
 */
 
-//brute: count the total number of nodes in the list, then traverse again to the middle node and return it.
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -26,6 +25,8 @@ Explanation: Since the list has two middle nodes with values 3 and 4, we return 
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+//brute: count the total number of nodes in the list, then traverse again to the middle node and return it.
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
@@ -56,16 +57,6 @@ public:
 // tc: O(2n) → O(n), sc: O(1)
 
 // optimal: Tortoise and Hare method - use two pointers, one slow and one fast. Move the slow pointer by 1 step and the fast pointer by 2 steps in each iteration. When the fast pointer reaches the end of the list, the slow pointer will be at the middle node.
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
